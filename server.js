@@ -54,17 +54,16 @@ router.route('/beacons')
 
         res.json({ message: 'Beacon created!' });
     });
+})
 
-    // get all the beacons (accessed at GET http://localhost:8080/api/beacons)
+// get all the beacons (accessed at GET http://localhost:8080/api/beacons)
     .get(function(req, res) {
-        Beacon.find(function(err, beacons) {
-            if (err)
-                res.send(err);
+    Beacon.find(function(err, beacons) {
+        if (err)
+            res.send(err);
 
-            res.json(beacons);
-        });
+        res.json(beacons);
     });
-
 });
 
 
