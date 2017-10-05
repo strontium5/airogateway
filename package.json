@@ -1,0 +1,23 @@
+{
+  "name": "airogateway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strontium5/airogateway.git"
+  },
+  "author": "Matthew Swarts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/strontium5/airogateway/issues"
+  },
+  "homepage": "https://github.com/strontium5/airogateway#readme",
+  "dependencies": {
+    "express": "^4.16.1",
+    "socket.io": "^2.0.3"
+  }
+}
