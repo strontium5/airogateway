@@ -10,8 +10,7 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public'));
 
-process.env.PORT = 80;
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 80;
 
 
 
