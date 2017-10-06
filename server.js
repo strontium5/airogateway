@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 const bodyParser = require('body-parser');
 
 // configure app to use bodyParser()
@@ -84,3 +85,32 @@ var mongoose   = require('mongoose');
 // =============================================================================
 server.listen(port);
 console.log("webserver started on port: "+port);
+
+
+
+
+
+
+io.on('connection',function(socket){
+    console.log("client "+socket['id']+" connected");
+
+    socket.on('subscribe',function(roomName){
+        socket.join(roomName);
+        console.log("client "+socket['id']+" joined room "+roomName);
+
+        if(roomName=='webclients'){
+        }
+    });
+
+    socket.on('unsubscribe',function(roomName){
+        socket.leave(roomName);
+        console.log("client "+socket['id']+" left room "+roomName);
+    });
+
+    socket.on('register',function(deviceInfo){
+    });
+
+    socket.on('disconnect', function(){
+        console.log("client "+socket+" disconnected");
+    });
+});

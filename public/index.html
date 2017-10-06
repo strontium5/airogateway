@@ -2,36 +2,59 @@
 <html>
     <head>
         <title>Airo Gateway Prototype</title>
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <script
+                src="https://code.jquery.com/jquery-3.2.1.min.js"
+                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+                crossorigin="anonymous"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script src="/socket.io/socket.io.js"></script>
     </head>
     <body>
 
         <h1>Airo Gateway Landing Page</h1>
-        <p>Airo Gateway Carpool Manager System (CMS)</p>
+        <p>Airo Gateway Carpool Group Manager System (CGMS)</p>
         <h2>Registered Vehicles</h2>
-        <ul>
-            <li>V1:UUID1</li>
-            <li>V2:UUID2</li>
-            <li>V3:UUID3</li>
+        <ul class="list-group">
+            <li class="list-group-item">V1:UUID1 - Left G2 2017.10.06 7:30am EST</li>
+            <li class="list-group-item">V2:UUID2 - Left G2 2017.10.06 7:30am EST</li>
+            <li class="list-group-item">V3:UUID3 - Left G4 2017.10.06 7:30am EST</li>
+            <li class="list-group-item">V4:UUID4 - Left G4 2017.10.06 7:30am EST</li>
         </ul>
         <h2>Registered Locations</h2>
-        <ul>
-            <li>
+        <ul class="list-group">
+            <li class="list-group-item">
                 <h3>Loc1</h3>
                 <h4>Registered Gateways</h4>
-                <ul>
-                    <li>G1</li>
-                    <li>G2</li>
+                <ul class="list-group">
+                    <li class="list-group-item">G1 - Offline</li>
+                    <li class="list-group-item">G2 - Offline</li>
                 </ul>
             </li>
-            <li>
+            <li class="list-group-item">
                 <h3>Loc2</h3>
                 <h4>Registered Gateways</h4>
-                <ul>
-                    <li>G3</li>
-                    <li>G4</li>
+                <ul class="list-group">
+                    <li class="list-group-item">G3 - Offline</li>
+                    <li class="list-group-item">G4 - Offline</li>
                 </ul>
             </li>
         </ul>
-
     </body>
+    <script>
+        var socket = io.connect('/');
+        socket.on('connect', function () {
+            console.log('connected to webserver');
+        });
+    </script>
+
 </html>
